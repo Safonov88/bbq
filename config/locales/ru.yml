@@ -14,6 +14,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+
   controllers:
     events:
       created: 'Событие было успешно создано'
@@ -21,6 +22,15 @@ ru:
       destroyed: 'Событие было успешно удалено'
     users:
       updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удалён'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
+    subscription:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+
   app:
     name: 'Шашлыки'
     company: 'Хороший программист'
@@ -28,3 +38,10 @@ ru:
     one: ошибка
     few: ошибки
     many: ошибок
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'

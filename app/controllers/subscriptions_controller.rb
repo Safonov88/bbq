@@ -3,12 +3,12 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:destroy]
 
   def create
+    @new_subscription = @event.subscriptions.build(subscription_params)
+    @new_subscription.user = current_user
+
     if current_user.present? && @event.user == current_user
       return redirect_to @event, alert: t('controllers.subscription.error')
     end
-
-    @new_subscription = @event.subscriptions.build(subscription_params)
-    @new_subscription.user = current_user
 
     if @new_subscription.save
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
@@ -16,7 +16,6 @@ class SubscriptionsController < ApplicationController
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
     end
   end
-
 
   def destroy
     message = {notice: I18n.t('controllers.subscriptions.destroyed')}
@@ -29,7 +28,6 @@ class SubscriptionsController < ApplicationController
 
     redirect_to @event, message
   end
-
 
   private
 

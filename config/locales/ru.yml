@@ -45,3 +45,5 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      email_of_user_exist: 'Нельзя подписать зарегестрированого пользователя'
+      mail_existing_user: 'Пользователь с таким Email зарегистрирован в системе.'

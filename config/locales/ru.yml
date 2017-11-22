@@ -15,6 +15,12 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              mail_existing_user: 'уже используется.'
 
   controllers:
     events:
@@ -47,4 +53,3 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
       email_of_user_exist: 'Нельзя подписать зарегестрированого пользователя'
-      mail_existing_user: 'Пользователь с таким Email зарегистрирован в системе.'

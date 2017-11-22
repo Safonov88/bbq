@@ -29,7 +29,7 @@ class Subscription < ApplicationRecord
 
   def email_of_user_present
     if User.find_by(email: user_email)
-      errors.add(:user_email, I18n::t('subscriptions.subscription.mail_existing_user'))
+      errors.add(:user_email, :mail_existing_user)
     end
   end
 end

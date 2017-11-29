@@ -46,7 +46,7 @@ ru:
       destroyed: 'Комментарий удалён'
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
-    subscription:
+    subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
@@ -70,3 +70,19 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
       email_of_user_exist: 'Нельзя подписать зарегестрированого пользователя'
+
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'

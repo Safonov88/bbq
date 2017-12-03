@@ -1,0 +1,6 @@
+<%= t '.title' %>
+
+
+<%= t '.author'%>: <%= @photo.user.name %>
+<%= t '.photo' %> <%= image_tag root_url + @photo.photo.url %>
+<%= t '.event'%>: <%= @event.title %>

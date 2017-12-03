@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
 
     if @new_photo.save
       # Если фотографию удалось сохранить, редирект на событие с сообщением
+      notify_photo(@event, @new_photo)
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
       # Если фотографию не удалось сохранить, рендер события с ошибкой
@@ -57,5 +58,14 @@ class PhotosController < ApplicationController
   # c единственным полем (оно тоже называется photo)
   def photo_params
     params.fetch(:photo, {}).permit(:photo)
+  end
+
+  def notify_photo(event, photo)
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+    all_emails.delete(photo.user.email)
+
+    all_emails.each do |mail|
+      EventMailer.photo(event, photo, mail).deliver_now
+    end
   end
 end

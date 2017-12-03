@@ -91,7 +91,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {host: 'bbqnew.heroku.com'}
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.perfom_deliveries = true
+  config.action_mailer.perform_deliveries = true
 
   ActionMailer::Base.smtp_settings = {
     :address              => 'smtp.sendgrid.net',

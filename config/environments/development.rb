@@ -58,7 +58,7 @@ Rails.application.configure do
     address: 'smtp.gmail.com',
     port: '587',
     user_name: 'rubyonrailstestmail',
-    password: Rails.application.secrets.email_pass,
+
     authentication: 'plain',
     enable_starttls_auto: true
   }

@@ -22,4 +22,5 @@
 
 .byebug_history
 .idea
+config/secrets.yml
 public/uploads/

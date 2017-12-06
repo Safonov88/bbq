@@ -34,6 +34,10 @@ ru:
           attributes:
             user_email:
               mail_existing_user: 'уже используется.'
+        photo:
+          attributes:
+            photo:
+              photo_blank: 'не выбрана'
 
   controllers:
     events:

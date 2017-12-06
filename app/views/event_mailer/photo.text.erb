@@ -2,5 +2,5 @@
 
 
 <%= t '.author'%>: <%= @photo.user.name %>
-<%= t '.photo' %> <%= image_tag root_url + @photo.photo.url %>
+<%= t '.photo'%> <%= link_to image_tag(@photo.photo.thumb.url), event_url(@event) %>
 <%= t '.event'%>: <%= @event.title %>

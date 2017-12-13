@@ -12,9 +12,7 @@ class EventMailer < ApplicationMailer
     @comment = comment
     @event = event
 
-    unless usreml(email, event)
-      mail to: email, subject: "Новый комментарий @ #{event.title}"
-    end
+    mail to: email, subject: "Новый комментарий @ #{event.title}"
   end
 
   def photo(event, photo, mail)
@@ -23,8 +21,5 @@ class EventMailer < ApplicationMailer
     mail to: mail, subject: "Новая фотография в @ #{event.title}"
   end
 
-  def usreml(email, event)
-    event.user.email == email
-  end
 end
 

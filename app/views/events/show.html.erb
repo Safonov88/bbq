@@ -14,68 +14,72 @@
             </h3>
             <p><%= @event.description %></p>
           </div>
-
-          <% if current_user_can_edit?(@event) %>
-              <div class="buffer-both">
-                <%= link_to 'Изменить', edit_event_path(@event),
-                            class: 'btn btn-primary' %>
-
-                <%= link_to 'Удалить', event_path(@event),
-                            class: 'btn btn-danger',
-                            data: {confirm: 'Вы уверены что хотите удалить событие?'},
-                            method: :delete %>
-              </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8">
-      <div class="event-photos">
-        <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-        </div>
-        <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
-      </div>
-      <div class="event-comments buffer-top">
-        <%= render partial: 'comments/form',
-                   locals: {comment: @new_comment || @event.comments.build} %>
-
-        <div class="buffer-both">
-          <%= render partial: 'comments/comment',
-                     collection: @event.comments.except(@new_comment) %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="event-owner">
-        <h4>Зовет:</h4>
-        <p><%= render partial: 'users/user', object: @event.user %></p>
-      </div>
-      <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
-        <div>
-          <p>
-            <%= render partial: 'subscriptions/subscription',
-                       collection: @event.subscriptions.except(@new_subscription) %>
-          </p>
-        </div>
-      </div>
-      <% unless @event.user == current_user %>
-          <div class="event-subscription-form">
-            <h4>Я пойду:</h4>
-            <div>
-              <%= render partial: 'subscriptions/form', locals: {
-                  subscription: @new_subscription || @event.subscriptions.build
-              } %>
-            </div>
+          <div id="map" style="width: 500px; height: 500px"
+               data-address=<%= @event.address %>>
           </div>
-      <% end %>
+        </div>
+      </div>
+    </div>
+
+    <% if current_user_can_edit?(@event) %>
+      <div class="buffer-both">
+        <%= link_to 'Изменить', edit_event_path(@event),
+                    class: 'btn btn-primary' %>
+
+        <%= link_to 'Удалить', event_path(@event),
+                    class: 'btn btn-danger',
+                    data: {confirm: 'Вы уверены что хотите удалить событие?'},
+                    method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="event-photos">
+      <div class="event-photos-gallery">
+        <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+      </div>
+      <div class="event-photo-form">
+        <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+      </div>
+    </div>
+    <div class="event-comments buffer-top">
+      <%= render partial: 'comments/form',
+                 locals: {comment: @new_comment || @event.comments.build} %>
+
+      <div class="buffer-both">
+        <%= render partial: 'comments/comment',
+                   collection: @event.comments.except(@new_comment) %>
+      </div>
     </div>
   </div>
+
+  <div class="col-md-4">
+    <div class="event-owner">
+      <h4>Зовет:</h4>
+      <p><%= render partial: 'users/user', object: @event.user %></p>
+    </div>
+    <div class="event-subscriptions">
+      <h4>Пойдут:</h4>
+      <div>
+        <p>
+          <%= render partial: 'subscriptions/subscription',
+                     collection: @event.subscriptions.except(@new_subscription) %>
+        </p>
+      </div>
+    </div>
+    <% unless @event.user == current_user %>
+      <div class="event-subscription-form">
+        <h4>Я пойду:</h4>
+        <div>
+          <%= render partial: 'subscriptions/form', locals: {
+              subscription: @new_subscription || @event.subscriptions.build
+          } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>

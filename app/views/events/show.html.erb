@@ -1,4 +1,4 @@
-<div class="event">
+<div class="event container">
   <div class="event-info row">
     <div class="col-md-12">
       <%= content_tag 'div', '', class: 'event-background', style: "background-image: url(#{event_photo(@event)})" %>
@@ -14,9 +14,10 @@
             </h3>
             <p><%= @event.description %></p>
           </div>
-          <div id="map" style="width: 500px; height: 500px"
-               data-address=<%= @event.address %>>
-          </div>
+        </div>
+        <div id="map"
+             data-address="<%= @event.address %>"
+             class="col-md-6 map">
         </div>
       </div>
     </div>

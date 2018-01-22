@@ -1,24 +1,17 @@
-# README
+# BBQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Сайт bbq](https://bbqnew.herokuapp.com/)
 
-Things you may want to cover:
+#### О сайте
 
-* Ruby version
+	Это учебное приложение зарегистрированные пользователи которого могут создавать разные события и звать на них своих друзей. Так же можно комментировать и привязывать фотографии к событиям. Созданное событие отображается на карте.
 
-* System dependencies
+#### Установка на локальной машине.
 
-* Configuration
+1. Склонировать репозиторий на локальную машину командой ``` git clone https://github.com/Safonov88/bbq ```
 
-* Database creation
+2. Зайти в консоли в папку с приложением и выполнить команду ``` bundle exec rails db:migrate ```
 
-* Database initialization
+3. Для запуска приложения используется команда ``` bundle exec rails s ```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. Локальный сайт будет находится по адресу ``` http://localhost:3000/ ```
